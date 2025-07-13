@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { RiReactjsLine, RiJavascriptFill } from "react-icons/ri";
 import { FaNodeJs, FaJava, FaBrain, FaCloud, FaDocker, FaAws, FaPython } from "react-icons/fa";
 import { BiLogoPostgresql, BiLogoMongodb } from "react-icons/bi";
@@ -25,101 +25,113 @@ const techStack = [
 const Technologies = () => {
   const containerRef = useRef(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
 
-  const handleMouseMove = (e) => {
-    if (containerRef.current) {
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
-      setMousePosition({ x, y });
-    }
-  };
+  // Check if device is mobile on component mount
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkIfMobile();
+    window.addEventListener('resize', checkIfMobile);
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  // Throttle mousemove event
+  const handleMouseMove = useCallback((e) => {
+    if (isMobile || !containerRef.current) return;
+    
+    const rect = containerRef.current.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    setMousePosition({ x, y });
+  }, [isMobile]);
+
+  // Simplified background style for better performance
+  const backgroundStyle = !isMobile ? {
+    background: `radial-gradient(500px circle at ${mousePosition.x}% ${mousePosition.y}%, 
+      rgba(255, 255, 255, 0.25) 0%, 
+      rgba(6, 182, 212, 0.08) 35%, 
+      rgba(168, 85, 247, 0.05) 50%, 
+      transparent 60%)`
+  } : {};
 
   return (
-    <section id="skills" className="bg-black  w-full py-24 relative overflow-hidden">
-      {/* Background Elements */}
+    <section id="skills" className="bg-black w-full py-16 md:py-24 relative overflow-hidden">
+      {/* Simplified background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-black to-black/10 opacity-20" />
-      <div className="absolute top-10 left-10 w-64 h-64 bg-cyan-500/10 rounded-full blur-2xl animate-pulse" />
-      <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-500/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: '1s' }} />
+      <div className="absolute top-10 left-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-xl animate-pulse" />
+      <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
       
-      <div className="max-w-7xl mx-auto relative z-1">
+      <div className="max-w-7xl mx-auto relative z-1 px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12 md:mb-16">
           <h2 className="section-title">
             Technical Skills
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             I constantly try to improve my skills and knowledge in cutting-edge technologies
           </p>
         </div>
 
-        {/* Tech Grid with Mouse Tracking */}
+        {/* Tech Grid */}
         <div 
           ref={containerRef}
-          className="relative px-8"
-          onMouseMove={handleMouseMove}
-          style={{
-            background: `radial-gradient(500px circle at ${mousePosition.x}% ${mousePosition.y}%, 
-              rgba(255, 255, 255, 0.15) 0%, 
-              rgba(6, 182, 212, 0.12) 25%, 
-              rgba(168, 85, 247, 0.08) 40%, 
-              transparent 60%)`
-          }}
+          className="relative"
+          onMouseMove={!isMobile ? handleMouseMove : undefined}
+          style={backgroundStyle}
         >
-          {/* Intense Mouse Following Spotlight */}
-          <div 
-            className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-            style={{
-              background: `radial-gradient(350px circle at ${mousePosition.x}% ${mousePosition.y}%, 
-                rgba(255, 255, 255, 0.08) 0%, 
-                rgba(255, 255, 255, 0.04) 30%, 
-                rgba(6, 182, 212, 0.06) 50%, 
-                transparent 70%)`
-            }}
-          />
-          
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6 py-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6 py-4 md:py-8">
             {techStack.map(({ Icon, color, name }, index) => (
               <div
                 key={index}
-                className="group relative flex flex-col items-center justify-center p-8 rounded-2xl bg-black/40 backdrop-blur-sm border border-gray-800/50 transition-all duration-500 hover:duration-200 hover:bg-white/10 hover:border-white/40 hover:shadow-2xl hover:shadow-white/20 hover:-translate-y-2 hover:scale-105"
+                className={`relative flex flex-col items-center justify-center p-4 md:p-6 rounded-xl bg-black/40 backdrop-blur-sm border border-gray-800/50 
+                  transition-all duration-300 hover:duration-200 hover:bg-white/5 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:-translate-y-1`}
                 style={{ 
-                  animation: `fadeInUp 0.8s ease-out ${index * 0.08}s both`,
+                  willChange: 'transform, box-shadow',
+                  transform: 'translateZ(0)',
+                  backfaceVisibility: 'hidden',
+                  animation: `fadeInUp 0.8s ease-out ${index * 0.05}s both`
                 }}
               >
-                {/* Intense Hover Border Effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-r from-white/30 via-cyan-400/25 to-white/30 p-[1px]">
-                  <div className="w-full h-full rounded-2xl bg-black/90"></div>
-                </div>
-                
-                {/* Content */}
                 <div className="relative z-10 flex flex-col items-center">
-                  <Icon className={`text-6xl ${color} transition-all duration-300 group-hover:scale-125 group-hover:drop-shadow-lg filter group-hover:brightness-125 group-hover:saturate-110`} />
-                  <span className="absolute -bottom-8 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300 text-white text-sm font-medium whitespace-nowrap bg-black/90 px-3 py-1 rounded-lg ">
+                  <Icon 
+                    className={`text-5xl md:text-6xl ${color} transition-transform duration-300 hover:scale-110`} 
+                    style={{
+                      willChange: 'transform',
+                      transform: 'translateZ(0)',
+                      backfaceVisibility: 'hidden'
+                    }}
+                  />
+                  <span className="mt-2 text-xs md:text-sm text-center text-gray-300">
                     {name}
                   </span>
                 </div>
-
-                {/* Intense Glow Effect */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-gradient-to-br from-white/10 via-cyan-400/8 to-white/10 blur-xl"></div>
-                
-                {/* Additional White Glow */}
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-300 bg-white/5 blur-2xl"></div>
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      <style jsx>{`
+      <style jsx global>{`
         @keyframes fadeInUp {
           from {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
           }
           to {
             opacity: 1;
             transform: translateY(0);
+          }
+        }
+        /* Optimize animations for mobile */
+        @media (prefers-reduced-motion: reduce) {
+          * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
           }
         }
       `}</style>
@@ -127,4 +139,4 @@ const Technologies = () => {
   );
 };
 
-export default Technologies;
+export default React.memo(Technologies);
