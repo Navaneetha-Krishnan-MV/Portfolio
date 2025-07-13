@@ -38,7 +38,7 @@ const Technologies = () => {
     return () => window.removeEventListener('resize', checkIfMobile);
   }, []);
 
-  // Throttle mousemove event
+  // Throttle mousemove event (desktop only)
   const handleMouseMove = useCallback((e) => {
     if (isMobile || !containerRef.current) return;
     
@@ -48,7 +48,7 @@ const Technologies = () => {
     setMousePosition({ x, y });
   }, [isMobile]);
 
-  // Simplified background style for better performance
+  // Desktop-only background style
   const backgroundStyle = !isMobile ? {
     background: `radial-gradient(500px circle at ${mousePosition.x}% ${mousePosition.y}%, 
       rgba(255, 255, 255, 0.25) 0%, 
@@ -59,10 +59,14 @@ const Technologies = () => {
 
   return (
     <section id="skills" className="bg-black w-full py-16 md:py-24 relative overflow-hidden">
-      {/* Simplified background elements */}
+      {/* Simplified background - reduced complexity for mobile */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-black to-black/10 opacity-20" />
-      <div className="absolute top-10 left-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-xl animate-pulse" />
-      <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+      {!isMobile && (
+        <>
+          <div className="absolute top-10 left-10 w-48 h-48 bg-cyan-500/10 rounded-full blur-xl animate-pulse" />
+          <div className="absolute bottom-10 right-10 w-64 h-64 bg-purple-500/10 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </>
+      )}
       
       <div className="max-w-7xl mx-auto relative z-1 px-4">
         {/* Header */}
@@ -87,8 +91,15 @@ const Technologies = () => {
               <div
                 key={index}
                 className={`relative flex flex-col items-center justify-center p-4 md:p-6 rounded-xl bg-black/40 backdrop-blur-sm border border-gray-800/50 
-                  transition-all duration-300 hover:duration-200 hover:bg-white/5 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:-translate-y-1`}
-                style={{ 
+                  ${isMobile 
+                    ? 'active:bg-white/5 active:border-white/30 active:scale-95' 
+                    : 'transition-all duration-300 hover:duration-200 hover:bg-white/5 hover:border-white/30 hover:shadow-lg hover:shadow-white/10 hover:-translate-y-1'
+                  }`}
+                style={isMobile ? {
+                  // Simplified styles for mobile
+                  willChange: 'auto',
+                  animation: `fadeInUp 0.6s ease-out ${index * 0.03}s both`
+                } : { 
                   willChange: 'transform, box-shadow',
                   transform: 'translateZ(0)',
                   backfaceVisibility: 'hidden',
@@ -97,8 +108,12 @@ const Technologies = () => {
               >
                 <div className="relative z-10 flex flex-col items-center">
                   <Icon 
-                    className={`text-5xl md:text-6xl ${color} transition-transform duration-300 hover:scale-110`} 
-                    style={{
+                    className={`text-5xl md:text-6xl ${color} ${
+                      isMobile ? '' : 'transition-transform duration-300 hover:scale-110'
+                    }`} 
+                    style={isMobile ? {
+                      willChange: 'auto'
+                    } : {
                       willChange: 'transform',
                       transform: 'translateZ(0)',
                       backfaceVisibility: 'hidden'
@@ -125,7 +140,39 @@ const Technologies = () => {
             transform: translateY(0);
           }
         }
-        /* Optimize animations for mobile */
+        
+        /* Mobile-specific optimizations */
+        @media (max-width: 768px) {
+          /* Disable hardware acceleration properties that can cause lag */
+          .backdrop-blur-sm {
+            backdrop-filter: none !important;
+          }
+          
+          /* Reduce animation complexity */
+          @keyframes fadeInUp {
+            from {
+              opacity: 0;
+              transform: translateY(10px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          
+          /* Optimize for touch devices */
+          * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+          }
+        }
+        
+        /* Optimize animations for mobile and reduced motion */
         @media (prefers-reduced-motion: reduce) {
           * {
             animation-duration: 0.01ms !important;

@@ -2,14 +2,15 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Briefcase, Code, Wrench } from 'lucide-react';
 
 // Enhanced Badge component with better styling
-const Badge = ({ children, className = "", variant = "default" }) => {
-  const baseClasses = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium backdrop-blur-sm";
-  const variantClasses = variant === "outline" 
-    ? "border border-cyan-400/30 text-cyan-300 bg-black/20" 
-    : "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-200";
+const Badge = ({ children, className = "", variant = "default", isMobile = false }) => {
+  const baseClasses = "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium";
+  const mobileClasses = "bg-gray-800/60 border border-gray-600/40 text-gray-400";
+  const desktopClasses = variant === "outline" 
+    ? "border border-cyan-400/30 text-cyan-300 bg-black/20 backdrop-blur-sm" 
+    : "bg-gradient-to-r from-cyan-500/20 to-purple-500/20 text-cyan-200 backdrop-blur-sm";
   
   return (
-    <span className={`${baseClasses} ${variantClasses} ${className}`}>
+    <span className={`${baseClasses} ${isMobile ? mobileClasses : desktopClasses} ${className}`}>
       {children}
     </span>
   );
@@ -78,6 +79,9 @@ const ExperienceSection = () => {
   }, []);
 
   useEffect(() => {
+    // Only enable scroll effects on desktop
+    if (isMobile) return;
+
     const handleScroll = () => {
       if (!sectionRef.current) return;
 
@@ -131,7 +135,7 @@ const ExperienceSection = () => {
     handleScroll();
     
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [highlightedCard]);
+  }, [highlightedCard, isMobile]);
 
   const getColorClasses = (experience, isHighlighted) => {
     const colors = {
@@ -160,9 +164,7 @@ const ExperienceSection = () => {
   const renderMobileLayout = () => (
     <div className="space-y-6 py-4 px-2">
       {experiences.map((experience, index) => {
-        const isHighlighted = highlightedCard === experience.id;
-        const colors = getColorClasses(experience, isHighlighted);
-        
+        const colors = getColorClasses(experience, false);
         return (
           <div
             key={experience.id}
@@ -170,114 +172,66 @@ const ExperienceSection = () => {
             className="relative"
           >
             <div className="flex gap-4">
-              {/* Timeline side */}
+              {/* Simple timeline side */}
               <div className="flex flex-col items-center">
-                <div 
-                  className={`w-10 h-10 rounded-full flex items-center justify-center transition-all duration-500 ${
-                    isHighlighted 
-                      ? `scale-110 bg-gradient-to-br from-${experience.color}-400 to-${experience.color}-600 ${colors.glow} shadow-lg` 
-                      : `scale-100 bg-gray-800/80 border ${colors.border}`
-                  }`}
-                >
-                  <experience.icon className={`w-5 h-5 transition-colors duration-500 ${
-                    isHighlighted ? 'text-white' : colors.text
-                  }`} />
+                <div className="w-8 h-8 rounded-full bg-gray-800/60 border border-gray-600/40 flex items-center justify-center">
+                  <experience.icon className={`w-4 h-4 ${colors.text}`} />
                 </div>
                 
-                {/* Mobile timeline line */}
+                {/* Simple timeline line */}
                 {index < experiences.length - 1 && (
-                  <div className="w-0.5 h-16 mt-2 bg-gradient-to-b from-gray-600/50 to-transparent" />
+                  <div className="w-0.5 h-12 mt-2 bg-gray-700/40" />
                 )}
               </div>
 
-              {/* Card content */}
+              {/* Simplified card content */}
               <div className="flex-1 pb-4">
-                <div
-                  className={`relative transform transition-all duration-500 ${
-                    isHighlighted
-                      ? 'translate-y-0 scale-[1.02]'
-                      : 'translate-y-1 scale-100'
-                  }`}
-                >
-                  {/* Animated border */}
-                  <div className={`absolute -inset-0.5 rounded-lg blur-sm transition-all duration-500 ${
-                    isHighlighted 
-                      ? `bg-gradient-to-r from-${experience.color}-400/30 via-${experience.color}-500/30 to-${experience.color}-400/30 opacity-60` 
-                      : 'bg-gradient-to-r from-gray-600/20 via-gray-500/20 to-gray-600/20 opacity-20'
-                  }`} />
-                  
-                  {/* Card */}
-                  <div className={`relative backdrop-blur-md rounded-lg p-5 transition-all duration-500 ${
-                    isHighlighted
-                      ? `bg-black/90 border ${colors.border} ${colors.glow} shadow-lg`
-                      : 'bg-black/70 border border-gray-700/40'
-                  }`}>
-                    {/* Duration badge */}
-                    <div className="mb-4">
-                      <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium transition-all duration-500 ${
-                        isHighlighted 
-                          ? `${colors.bg} ${colors.border} border ${colors.text}` 
-                          : 'bg-gray-800/60 border border-gray-600/40 text-gray-400'
-                      }`}>
-                        {experience.duration}
-                      </span>
-                    </div>
+                <div className="bg-black/80 border border-gray-700/40 rounded-lg p-4">
+                  {/* Duration badge */}
+                  <div className="mb-3">
+                    <span className={`inline-block px-2 py-1 rounded-full text-xs ${colors.bg} ${colors.border} border ${colors.text}`}>
+                      {experience.duration}
+                    </span>
+                  </div>
 
-                    {/* Company header */}
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-10 h-10 rounded-lg flex items-center justify-center text-sm font-bold transition-all duration-500 ${
-                        isHighlighted 
-                          ? `${colors.bg} ${colors.border} border ${colors.text}` 
-                          : 'bg-gray-800/60 border border-gray-600/40 text-gray-400'
-                      }`}>
-                        {experience.company.charAt(0)}
-                      </div>
-                      <div>
-                        <h3 className={`text-base font-semibold transition-colors duration-500 ${
-                          isHighlighted ? 'text-white' : 'text-gray-300'
-                        }`}>
-                          {experience.company}
-                        </h3>
-                        <p className={`text-sm transition-colors duration-500 ${
-                          isHighlighted ? colors.text : 'text-gray-500'
-                        }`}>
-                          {experience.role}
-                        </p>
-                      </div>
+                  {/* Company header */}
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className={`w-8 h-8 rounded-md ${colors.bg} border ${colors.border} flex items-center justify-center text-xs font-bold ${colors.text}`}>
+                      {experience.company.charAt(0)}
                     </div>
-
-                    {/* Description */}
-                    <div className="mb-4">
-                      <ul className="space-y-2">
-                        {experience.description.map((desc, idx) => (
-                          <li key={idx} className={`text-sm flex items-start gap-2 transition-colors duration-500 ${
-                            isHighlighted ? 'text-gray-200' : 'text-gray-400'
-                          }`}>
-                            <span className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 transition-colors duration-500 ${
-                              isHighlighted ? colors.bg.replace('/10', '/60') : 'bg-gray-600/50'
-                            }`} />
-                            {desc}
-                          </li>
-                        ))}
-                      </ul>
+                    <div>
+                      <h3 className="text-base font-semibold text-white">
+                        {experience.company}
+                      </h3>
+                      <p className={`text-sm ${colors.text}`}>
+                        {experience.role}
+                      </p>
                     </div>
+                  </div>
 
-                    {/* Tech stack */}
-                    <div className="flex flex-wrap gap-1.5">
-                      {experience.techStack.map((tech, idx) => (
-                        <Badge
-                          key={idx}
-                          variant="outline"
-                          className={`text-xs transition-all duration-500 ${
-                            isHighlighted 
-                              ? `${colors.bg} ${colors.border} border ${colors.text}` 
-                              : 'bg-gray-800/40 border-gray-600/30 text-gray-400'
-                          }`}
-                        >
-                          {tech}
-                        </Badge>
+                  {/* Description */}
+                  <div className="mb-3">
+                    <ul className="space-y-1">
+                      {experience.description.map((desc, idx) => (
+                        <li key={idx} className="text-sm text-gray-200 flex items-start gap-2">
+                          <span className={`w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0 ${colors.bg.replace('/10', '/70')}`} />
+                          {desc}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
+                  </div>
+
+                  {/* Tech stack */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {experience.techStack.map((tech, idx) => (
+                      <Badge
+                        key={idx}
+                        variant="outline"
+                        className={`text-xs ${colors.bg} ${colors.border} border ${colors.text}`}
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -551,22 +505,24 @@ const ExperienceSection = () => {
 
   return (
     <section ref={sectionRef} className="min-h-screen py-16 px-4 bg-black relative overflow-hidden">
-      {/* Enhanced background effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-gray-900/20 via-black to-black" />
-      <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-400/5 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-400/3 rounded-full blur-3xl" />
+      
       
       <div className="container mx-auto max-w-7xl relative z-10">
-        {/* Enhanced section header */}
-        <div className="text-center mb-20">
-          <div className="inline-block relative">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-white via-cyan-200 to-purple-300 bg-clip-text text-transparent mb-6 relative">
-              Experience
+        {/* Simplified section header */}
+        <div className="text-center mb-16">
+          <h2 className={`font-bold mb-6 ${
+            isMobile 
+              ? 'text-3xl text-white' 
+              : 'text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-cyan-200 to-purple-300 bg-clip-text text-transparent'
+          }`}>
+            Experience
+            {!isMobile && (
               <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/20 via-purple-500/20 to-teal-400/20 blur-xl opacity-30 animate-pulse" />
-            </h2>
-          </div>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+            )}
+          </h2>
+          <p className={`text-gray-400 max-w-3xl mx-auto leading-relaxed ${
+            isMobile ? 'text-base' : 'text-lg'
+          }`}>
             A journey through innovative roles and impactful contributions in the tech industry
           </p>
         </div>
