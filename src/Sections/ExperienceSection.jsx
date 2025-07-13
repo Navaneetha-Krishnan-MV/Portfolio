@@ -510,15 +510,8 @@ const ExperienceSection = () => {
       <div className="container mx-auto max-w-7xl relative z-10">
         {/* Simplified section header */}
         <div className="text-center mb-16">
-          <h2 className={`font-bold mb-6 ${
-            isMobile 
-              ? 'text-3xl text-white' 
-              : 'text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-cyan-200 to-purple-300 bg-clip-text text-transparent'
-          }`}>
+          <h2 className={`font-bold mb-6 text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-white via-cyan-200 to-purple-300 bg-clip-text text-transparent`}>
             Experience
-            {!isMobile && (
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-400/20 via-purple-500/20 to-teal-400/20 blur-xl opacity-30 animate-pulse" />
-            )}
           </h2>
           <p className={`text-gray-400 max-w-3xl mx-auto leading-relaxed ${
             isMobile ? 'text-base' : 'text-lg'
