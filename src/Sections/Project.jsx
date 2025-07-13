@@ -41,7 +41,7 @@ const PROJECTS = [
 
 const Project = () => {
     return (
-        <div className="min-h-screen pt-10 bg-black">
+        <div className="min-h-screen pt-10 bg-black overflow-x-hidden">
             <section id="projects" className="w-full bg-black scroll-mt-20 pb-10">
                 <div className="text-center mb-16">
                     <h2 className="section-title">
@@ -67,7 +67,7 @@ const Project = () => {
                                         className="rounded mx-auto lg:mx-0 object-cover"
                                     />
                                 </div>
-                                <div className="ml-5 w-full max-w-xl lg:w-3/4 lg:pl-4">
+                                <div className="mx-4 lg:mx-5 w-[calc(100%-2rem)] max-w-xl lg:w-3/4 lg:pl-4">
                                     <h6 className="text-white mb-2 font-semibold">{project.title}</h6>
                                     <p className="mb-4 text-neutral-400">{project.description}</p>
                                     {project.technologies.map((tech, techIndex) => (

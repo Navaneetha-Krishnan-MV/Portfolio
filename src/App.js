@@ -14,7 +14,7 @@ function App() {
     
     <div className="App bg-black text-white" >
       <Scroll>
-         <Landing />
+         <Landing />  
          <About/>
          <ExperienceSection/>
          <Project/>

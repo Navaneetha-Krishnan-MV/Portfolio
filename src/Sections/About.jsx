@@ -17,7 +17,7 @@ const fadeInUp = {
 const About = () => {
   return (
     <section id="about" className="bg-black py-16">
-      <div className="container mx-auto px-4">
+      <div className="px-4 md:px-8 lg:px-24">
         <div className="flex flex-wrap items-center lg:justify-between">
           {/* Text Content */}
           <div className="w-full lg:w-3/5 mb-8 lg:mb-0 lg:pr-12"> {/* Changed width from 2/5 to 3/5 and added right padding */}

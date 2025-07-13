@@ -46,7 +46,7 @@ const Navb = () => {
         {/* Logo/Name */}
         <a
           href="#top"
-          className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 cursor-pointer"
+          className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-white-500 to-purple-400 cursor-pointer"
         >
           Navaneethakrishnan M V
         </a>
@@ -56,8 +56,8 @@ const Navb = () => {
           <a href="#home" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">Home</a>
           <a href="#about" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">About</a>
           <a href="#projects" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">Projects</a>
-          <a href="#skills" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">Skills</a>
           <a href="#achievements" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">Achievements</a>
+          <a href="#skills" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">Skills</a>
           <a href="#contact" className="text-gray-200 hover:text-pink-400 transition-transform transform hover:scale-110 duration-200">Contact</a>
         </nav>
       </header>

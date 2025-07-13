@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes orbit {
+  from {
+    transform: rotate(0deg) translateX(calc(50vw - 50%)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(calc(50vw - 50%)) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
 /* Reset and base styles */
 html, 
 body {
@@ -19,10 +38,7 @@ body {
   font-size: 16px;
 }
 
-/* Typography */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
 
 @layer components {
   h1, h2, h3, h4, h5, h6 {
@@ -46,6 +62,13 @@ body {
   .about-subtext {
     @apply text-base md:text-lg text-gray-400 mt-4;
   }
+  .nav-item {
+  @apply px-4 py-1.5 rounded-full text-white/70 text-sm font-semibold hover:bg-white/10 text-white transition duration-300;
+}
+
+.hero-ring{
+  @apply absolute inset-0 size-[620px] border-2 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-cyan-400/15 shadow-[0_0_80px_inset] shadow-cyan-400/15;
+}
 }
 
 #root,

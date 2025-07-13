@@ -204,8 +204,8 @@ const CertificatesSection = () => {
         <div className="grid lg:grid-cols-2 gap-8 items-start">
           {/* Certificates Box */}
           <div className="group relative h-fit">
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400/20 via-purple-500/20 to-teal-400/20 rounded-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-            <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-cyan-400/30 transition-all duration-500 h-full">
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-400/60 rounded-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
+            <div className="relative bg-black backdrop-blur-sm rounded-2xl p-8 border border-cyan-400/30 hover:border-cyan-400/60 transition-all duration-500 h-full">
               <div className="flex items-center mb-6">
                 {/* <div className="bg-gradient-to-r from-cyan-500/80 to-teal-500/80 rounded-lg p-3 mr-4">
                   <span className="text-2xl">📜</span>
@@ -260,7 +260,7 @@ const CertificatesSection = () => {
           {/* Achievements Box */}
           <div className="group relative h-fit">
             <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-400/20 via-pink-500/20 to-cyan-400/20 rounded-2xl opacity-60 group-hover:opacity-80 transition-opacity duration-500"></div>
-            <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-purple-400/30 transition-all duration-500 h-full">
+            <div className="relative bg-gray-900/95 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50 hover:border-purple-400/60 transition-all duration-500 h-full">
               <div className="flex items-center mb-6">
                 {/* <div className="bg-gradient-to-r from-purple-500/80 to-pink-500/80 rounded-lg p-3 mr-4">
                   <span className="text-2xl">🏆</span>

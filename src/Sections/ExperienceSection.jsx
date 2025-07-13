@@ -41,7 +41,7 @@ const experiences = [
     ],
     techStack: ['Machine Learning', 'Python', 'Matplotlib', 'Signal Processing'],
     icon: Code,
-    color: 'cyan'
+    color: 'purple'
   },
   {
     id: '3',
