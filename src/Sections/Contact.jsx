@@ -1,15 +1,21 @@
-import React, { useEffect, useRef } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import React, { useEffect, useRef, useState } from "react";
 import ContactExperience from "../Components/ContactExperience.jsx";
 import emailjs from "@emailjs/browser";
-import { useState } from "react";
 import '../styles/Contact.css';
-import {ReactTyped as Typed} from 'react-typed';  // Import react-typed
+import { ReactTyped as Typed } from 'react-typed';
 
 const Contact = () => {
-  
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const formRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   const [formData, setFormData] = React.useState({
     name: "", 
     email: "",
@@ -71,8 +77,9 @@ const Contact = () => {
 
       <div className="w-full h-full md:px-10 px-5 flex flex-col md:flex-row items-center justify-between gap-8">
         
+        
         {/* Contact Form */}
-        <div className="md:w-5/12 w-full">
+        <div className={`${isMobile ? 'w-full' : 'md:w-5/12'} w-full`}>
           <h2 className="my-10 text-center text-4xl">
               <span >
         <Typed
@@ -150,12 +157,13 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Three.js Model */}
-        <div className="md:w-7/12 w-full h-96 md:h-[500px]">
-           <div className="w-full h-full bg-[#cd7c2e] hover:cursor-grab rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
-            <ContactExperience />
-           </div>
-        </div>
+        {!isMobile && (
+          <div className="md:w-7/12 w-full h-96 md:h-[500px]">
+          <div className="w-full h-full bg-[#cd7c2e] hover:cursor-grab rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
+           <ContactExperience />
+          </div>
+       </div>
+        )}
       </div>
     </section>
   );
