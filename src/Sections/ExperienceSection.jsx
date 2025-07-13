@@ -142,13 +142,13 @@ const ExperienceSection = () => {
       cyan: {
         border: isHighlighted ? 'border-cyan-400/60' : 'border-cyan-400/20',
         bg: isHighlighted ? 'bg-cyan-500/10' : 'bg-cyan-500/5',
-        text: isHighlighted ? 'text-cyan-300' : 'text-cyan-400',
+        text: isHighlighted ? 'text-cyan-300' : 'md:text-cyan-400 text-cyan-300',
         glow: isHighlighted ? 'shadow-cyan-400/30' : 'shadow-cyan-400/10'
       },
       purple: {
         border: isHighlighted ? 'border-purple-400/60' : 'border-purple-400/20',
         bg: isHighlighted ? 'bg-purple-500/10' : 'bg-purple-500/5',
-        text: isHighlighted ? 'text-purple-300' : 'text-purple-400',
+        text: isHighlighted ? 'text-purple-300' : 'md:text-purple-400 text-purple-300',
         glow: isHighlighted ? 'shadow-purple-400/30' : 'shadow-purple-400/10'
       },
       teal: {
