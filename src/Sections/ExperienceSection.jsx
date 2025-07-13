@@ -148,7 +148,7 @@ const ExperienceSection = () => {
       purple: {
         border: isHighlighted ? 'border-purple-400/60' : 'border-purple-400/20',
         bg: isHighlighted ? 'bg-purple-500/10' : 'bg-purple-500/5',
-        text: isHighlighted ? 'text-purple-300' : 'md:text-purple-400 text-purple-300',
+        text: isHighlighted ? 'text-purple-300' : 'text-purple-400',
         glow: isHighlighted ? 'shadow-purple-400/30' : 'shadow-purple-400/10'
       },
       teal: {
