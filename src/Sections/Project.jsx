@@ -34,7 +34,7 @@ const PROJECTS = [
         image: parking,
         description:
             "A comprehensive web application designed to streamline parking management, featuring real-time availability updates and booking functionality.",
-        technologies: ["React", "CSS", "Postgresql", "Node.js", "Rupay"],
+        technologies: ["React", "CSS", "Postgresql", "Node.js", "Razorpay"],
         link: "https://parking-orcin-tau.vercel.app/",
     },
 ];
