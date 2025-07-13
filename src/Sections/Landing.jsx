@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { ReactTyped as Typed } from "react-typed";
-import me from "../myimage.jpg";
 import grainImage from "../assets/images/grain.jpg";
 import {ReactComponent as StarIcon} from "../assets/icons/star.svg";
 import {ReactComponent as SparkleIcon} from "../assets/icons/sparkle.svg";
@@ -88,7 +87,7 @@ function Landing() {
       <main className="relative z-10 container mx-auto px-4 pt-64 pb-8">
         <section id="intro" className="mb-16 text-center">
           <img 
-            src={me} 
+            src="https://ik.imagekit.io/5dpa1a7ub/myimage.jpg?updatedAt=1752400426780" 
             alt="Navaneethakrishnan M V"
             width={256}
             height={256}
