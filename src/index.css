@@ -52,6 +52,8 @@ body {
     background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
+    line-height: 1.2;
+    padding-bottom: 6px;
   }
 
   .about-content {

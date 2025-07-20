@@ -68,7 +68,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="bg-black w-full py-12">
-      <h2 className="mb-20 text-center">
+      <h2 className="mb-8 text-center">
         <span className="section-title">
           Get in touch with me
         </span>
