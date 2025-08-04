@@ -12,7 +12,6 @@ import Stats from './Sections/Stats.jsx'
 
 function App() {
   return (
-    
     <div className="App bg-black text-white" >
       <Scroll>
          <Landing />  
