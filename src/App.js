@@ -8,6 +8,7 @@ import Project from './Sections/Project.jsx'
 import Technologies from './Sections/Technologies.jsx'
 import Contact from './Sections/Contact.jsx'
 import CertificatesSection from './Sections/CertificatesSection.jsx'
+
 import Stats from './Sections/Stats.jsx'
 
 function App() {

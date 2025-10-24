@@ -51,7 +51,7 @@ const About = () => {
               <a href="https://leetcode.com/u/Im_Thunder/" target="_blank" rel="noopener noreferrer" className="text-white text-medium hover:text-[#FFA116] transition-colors">
                 <SiLeetcode size={30} />
               </a>
-              <a href="https://www.hackerrank.com/profile/navaneethank45" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors">
+              <a href="https://www.hackerrank.com/profile/23cs113_kpriet" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-400 transition-colors">
                 <SiHackerrank size={30} />
               </a>
               <a href="https://www.geeksforgeeks.org/user/navaneeta0ve/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-500 transition-colors">
