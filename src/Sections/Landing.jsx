@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { ReactTyped as Typed } from "react-typed";
 import grainImage from "../assets/images/grain.jpg";
 import {ReactComponent as StarIcon} from "../assets/icons/star.svg";

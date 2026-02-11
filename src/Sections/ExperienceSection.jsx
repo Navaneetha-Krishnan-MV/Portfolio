@@ -65,7 +65,7 @@ const ExperienceSection = () => {
   const [highlightedCard, setHighlightedCard] = useState(null);
   const [timelineHeight, setTimelineHeight] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
-  const [scrollProgress, setScrollProgress] = useState(0);
+  //const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const checkMobile = () => {
@@ -96,7 +96,7 @@ const ExperienceSection = () => {
         (viewportHeight * 0.7 - sectionTop) / (sectionHeight * 0.8)
       ));
       
-      setScrollProgress(scrollProgress);
+      //setScrollProgress(scrollProgress);
       
       // Calculate timeline height more smoothly
       if (timelineRef.current) {
