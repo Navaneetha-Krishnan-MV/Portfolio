@@ -2,7 +2,7 @@ import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { RiReactjsLine, RiJavascriptFill } from "react-icons/ri";
 import { FaNodeJs, FaJava, FaBrain, FaCloud, FaDocker, FaAws, FaPython } from "react-icons/fa";
 import { BiLogoPostgresql, BiLogoMongodb } from "react-icons/bi";
-import { SiExpress, SiTailwindcss, SiNextdotjs, SiGit } from "react-icons/si";
+import { SiExpress, SiTailwindcss,SiGit } from "react-icons/si";
 
 const techStack = [
   { Icon: RiJavascriptFill, color: "text-yellow-400", name: "JavaScript" },
@@ -10,7 +10,6 @@ const techStack = [
   { Icon: BiLogoMongodb, color: "text-green-600", name: "MongoDB" },
   { Icon: SiExpress, color: "text-gray-300", name: "Express" },
   { Icon: RiReactjsLine, color: "text-cyan-400", name: "React" },
-  { Icon: SiNextdotjs, color: "text-white", name: "Next.js" },
   { Icon: SiTailwindcss, color: "text-cyan-400", name: "Tailwind CSS" },
   { Icon: FaPython, color: "text-blue-500", name: "Python" },
   { Icon: FaJava, color: "text-orange-600", name: "Java" },
