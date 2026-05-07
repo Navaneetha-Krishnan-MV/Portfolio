@@ -32,11 +32,11 @@ const Stats = () => {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/10 via-black to-black/10 opacity-20" />
       <div className="absolute top-20 left-20 w-64 h-64 bg-cyan-500/10 rounded-full blur-2xl animate-pulse" />
-      <div 
-        className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-2xl animate-pulse" 
-        style={{ animationDelay: '1s' }} 
+      <div
+        className="absolute bottom-20 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-2xl animate-pulse"
+        style={{ animationDelay: '1s' }}
       />
-      
+
       <div className="container mx-auto max-w-7xl relative z-10 px-4">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -54,7 +54,7 @@ const Stats = () => {
           <div className="space-y-6">
             <Card className="relative backdrop-blur-sm bg-black/85 border border-gray-700/40 hover:border-purple-500/50 transition-all duration-300">
               <div className="absolute -inset-0.5 rounded-xl blur bg-gradient-to-r from-cyan-400/20 via-purple-500/20 to-pink-500/20 opacity-30" />
-              
+
               <CardHeader className="relative">
                 <CardTitle className="flex items-center gap-3 text-2xl font-semibold text-white">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-white/10 flex items-center justify-center">
@@ -63,40 +63,44 @@ const Stats = () => {
                   GitHub Activity
                 </CardTitle>
               </CardHeader>
-              
+
               <CardContent className="relative space-y-6 hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center">
-                <a href="https://github.com/Navaneetha-Krishnan-MV">
-                <img
-                  className="stats-image"
-                  src="https://github-readme-stats.vercel.app/api?username=Navaneetha-Krishnan-MV&count_private=true&show_icons=true&theme=nightowl&bg_color=0,000000,441350&title_color=c56a90&text_color=ffffff&rank_icon=github&hide=prs,issues,contribs&show=reviews,prs_merged,prs_merged_percentage"
-                  alt="GitHub Stats"
-                />
-              </a>
+                  <a href="https://github.com/Navaneetha-Krishnan-MV">
+                    <img
+  className="stats-image"
+  src="https://streak-stats.demolab.com?user=Navaneetha-Krishnan-MV&theme=nightowl&background=000000&ring=C56A90&fire=C56A90&currStreakLabel=FFFFFF"
+  alt="GitHub Streak"
+  loading="lazy"
+  decoding="async"
+/>
+                  </a>
                 </div>
               </CardContent>
 
               <CardContent className="relative space-y-6 hover:scale-105 transition-all duration-300">
                 <div className="flex justify-center">
-                <a href="https://github.com/Navaneetha-Krishnan-MV">
-                <img
-            className="stats-image"
-            src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Navaneetha-Krishnan-MV&theme=radical"
-            alt="GitHub Stats"
-          />
-              </a>
+                  <a href="https://github.com/Navaneetha-Krishnan-MV">
+                    <img
+                      className="stats-image"
+                      src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Navaneetha-Krishnan-MV&theme=radical"
+                      alt="GitHub Stats"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </a>
                 </div>
               </CardContent>
-              
-              
+
+
             </Card>
           </div>
-          
+
 
           {/* LeetCode Section */}
           <Card className="relative backdrop-blur-sm bg-black/85 border border-gray-700/40 hover:border-purple-500/50 transition-all duration-300">
             <div className="absolute -inset-0.5 rounded-xl blur bg-gradient-to-r from-purple-400/20 via-pink-500/20 to-cyan-500/20 opacity-30" />
-            
+
             <CardHeader className="relative">
               <CardTitle className="flex items-center gap-3 text-2xl font-semibold text-white">
                 <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-white/10 flex items-center justify-center">
@@ -105,19 +109,24 @@ const Stats = () => {
                 LeetCode Progress
               </CardTitle>
             </CardHeader>
-            
+
             <CardContent className="relative space-y-6 hover:scale-105 transition-all duration-300">
               {/* LeetCode Stats Card */}
               <a href="https://leetcode.com/u/Im_Thunder/" target="_blank" rel="noopener noreferrer">
-              <div className="flex justify-center">
-              <img src="https://leetcard.jacoblin.cool/Im_Thunder?theme=dark&font=source_code_pro&ext=heatmap" alt="LeetCode Stats"/>
-              </div>
+                <div className="flex justify-center">
+                  <img
+                    src="https://leetcard.jacoblin.cool/Im_Thunder?theme=dark&font=source_code_pro&ext=heatmap"
+                    alt="LeetCode Stats"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
               </a>
             </CardContent>
           </Card>
         </div>
       </div>
-      
+
     </section>
   );
 };

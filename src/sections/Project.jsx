@@ -1,10 +1,44 @@
-import science from "../science-project.jpg";
-import jimg from "../jimag.png";
-import portimg from "../portfolioimg.png";
-import parking from "../parking.png";
-import tempfan from "../scivid.mp4";
+import science from "../assets/images/science-project.jpg";
+import jimg from "../assets/images/jimag.png";
+import parking from "../assets/images/parking.png";
+import tempfan from "../assets/media/scivid.mp4";
+import focusai from "../assets/images/focus-ai.png"
+import multivenueQR from "../assets/images/multivenue-qr.png"
+import resumeAnalyzer from "../assets/images/resume-analyzer.png"
 
 const PROJECTS = [
+    {
+        title: "Venue-Based Live Quiz Platform",
+        image: multivenueQR,
+        description:
+            "Built and deployed a real-time quiz platform used by 100+ concurrent participants across 8+ venues with smooth simultaneous engagement. Implemented QR-based venue segregation, question expiration logic, dynamic scoring, and live leaderboard updates.",
+        technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "QR Code"],
+        link: "https://queue-r-jade.vercel.app/",
+    },
+    {
+        title: "FocusAI Productive Assistant",
+        image: focusai,
+        description:
+            "Built a scalable productivity tracking system with a Chrome extension & Electron app, capturing real-time behavioral data. Implemented Node.js and Python backend with MongoDB for analytics, and designed an ML-based chatbot to deliver personalized feedback.",
+        technologies: ["React", "CSS", "Node.js", "Python", "MongoDB", "ML"],
+        link: "https://parking-orcin-tau.vercel.app/",
+    },
+    {
+        title: "Smart Parking System",
+        image: parking,
+        description:
+            "A comprehensive web application designed to streamline parking management, featuring real-time availability updates and booking functionality.",
+        technologies: ["React", "CSS", "Postgresql", "Node.js", "Razorpay"],
+        link: "https://parking-orcin-tau.vercel.app/",
+    },
+    {
+        title: "AI Resume Analyzer",
+        image: resumeAnalyzer,
+        description:
+            "Fully serverless ATS resume analyzer on AWS. Upload a resume + job description to get an ATS score, semantic match %, skill gap analysis, and AI-powered suggestions in under 60 seconds. Uses Amazon Bedrock (Titan for semantic similarity, Nova for suggestions) and PyMuPDF4LLM for clean PDF extraction.",
+        technologies: ["React", "Python", "AWS Lambda", "Amazon Bedrock", "Amazon S3", "API Gateway"],
+        link: "https://resume-analyzer-alpha-tawny.vercel.app/",
+    },
     {
         title: "Temperature Based Fan Control System (SCIENCE PROJECT)",
         image: science,
@@ -20,22 +54,6 @@ const PROJECTS = [
             "The Vehicle Rental System is a Java-based application utilizing OOP principles to manage vehicle rentals. It features separate login functionalities for Renters to browse and book vehicles and Owners to list and manage their fleet.",
         technologies: ["Java", "OOPS", "Singleton Class", "Intelligi"],
         link: "https://github.com/Navaneetha-Krishnan-MV/Vehicle-Rental-System",
-    },
-    {
-        title: "Portfolio Website",
-        image: portimg,
-        description:
-            "A personal portfolio website showcasing projects, skills, and contact information.",
-        technologies: ["Tailwind", "React"],
-        link: "https://portfolio-wheat-nine-35.vercel.app/",
-    },
-    {
-        title: "Smart Parking System",
-        image: parking,
-        description:
-            "A comprehensive web application designed to streamline parking management, featuring real-time availability updates and booking functionality.",
-        technologies: ["React", "CSS", "Postgresql", "Node.js", "Razorpay"],
-        link: "https://parking-orcin-tau.vercel.app/",
     },
 ];
 
@@ -54,16 +72,17 @@ const Project = () => {
                         {PROJECTS.map((project, index) => (
                             <div
                                 key={index}
-                                className={`flex flex-col lg:flex-row lg:justify-center items-center lg:items-start ${
-                                    index !== PROJECTS.length - 1 ? "mb-8" : ""
-                                }`}
+                                className={`flex flex-col lg:flex-row lg:justify-center items-center lg:items-start ${index !== PROJECTS.length - 1 ? "mb-8" : ""
+                                    }`}
                             >
                                 <div className="w-full lg:w-1/4 mb-6 lg:mb-0">
                                     <img
                                         src={project.image}
-                                        width={180}
-                                        height={180}
+                                        width={240}
+                                        height={240}
                                         alt={project.title}
+                                        loading="lazy"
+                                        decoding="async"
                                         className="rounded mx-auto lg:mx-0 object-cover"
                                     />
                                 </div>

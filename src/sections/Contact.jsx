@@ -1,12 +1,17 @@
-import React, { useEffect, useRef, useState } from "react";
-import ContactExperience from "../Components/ContactExperience.jsx";
+import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import '../styles/Contact.css';
 import { ReactTyped as Typed } from 'react-typed';
 
+const ContactExperience = lazy(() => import("../components/ContactExperience.jsx"));
+
 const Contact = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" ? window.innerWidth <= 768 : true
+  );
   const formRef = useRef(null);
+  const experienceRef = useRef(null);
+  const [shouldLoad3D, setShouldLoad3D] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -16,13 +21,33 @@ const Contact = () => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-  const [formData, setFormData] = React.useState({
+
+  useEffect(() => {
+    if (isMobile || shouldLoad3D) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad3D(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px" }
+    );
+
+    if (experienceRef.current) {
+      observer.observe(experienceRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [isMobile, shouldLoad3D]);
+  const [formData, setFormData] = useState({
     name: "", 
     email: "",
     message: "",
   });
 
-  const[loading, setLoading] = React.useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -158,11 +183,21 @@ const Contact = () => {
         </div>
 
         {!isMobile && (
-          <div className="md:w-7/12 w-full h-96 md:h-[500px]">
-          <div className="w-full h-full bg-[#cd7c2e] hover:cursor-grab rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
-           <ContactExperience />
+          <div ref={experienceRef} className="md:w-7/12 w-full h-96 md:h-[500px]">
+            <div className="w-full h-full bg-[#cd7c2e] hover:cursor-grab rounded-3xl overflow-hidden shadow-2xl shadow-black/50">
+              <Suspense
+                fallback={
+                  <div className="w-full h-full bg-[#cd7c2e] animate-pulse" />
+                }
+              >
+                {shouldLoad3D ? (
+                  <ContactExperience />
+                ) : (
+                  <div className="w-full h-full bg-[#cd7c2e]" />
+                )}
+              </Suspense>
+            </div>
           </div>
-       </div>
         )}
       </div>
     </section>

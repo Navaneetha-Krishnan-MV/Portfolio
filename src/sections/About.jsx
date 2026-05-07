@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { SiGithub, SiHackerrank, SiGeeksforgeeks , SiLeetcode, SiLinkedin } from "react-icons/si";
-import fullgif from "../full-stack-development.gif";
+import fullgif from "../assets/images/full-stack-development.gif";
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
@@ -71,6 +71,8 @@ const About = () => {
               <img 
                 src={fullgif} 
                 alt="Full-stack development illustration"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto"
               />
             </div>

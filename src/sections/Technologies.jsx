@@ -23,6 +23,8 @@ const techStack = [
 
 const Technologies = () => {
   const containerRef = useRef(null);
+  const rafRef = useRef(null);
+  const lastMouseRef = useRef({ x: 0, y: 0 });
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
 
@@ -44,8 +46,22 @@ const Technologies = () => {
     const rect = containerRef.current.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setMousePosition({ x, y });
+    lastMouseRef.current = { x, y };
+    if (rafRef.current !== null) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = null;
+      setMousePosition(lastMouseRef.current);
+    });
   }, [isMobile]);
+
+  useEffect(() => {
+    return () => {
+      if (rafRef.current !== null) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, []);
 
   // Desktop-only background style
   const backgroundStyle = !isMobile ? {

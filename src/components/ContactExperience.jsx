@@ -1,22 +1,34 @@
 import { OrbitControls } from "@react-three/drei";
 import Computer from "./Computer.jsx";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 
 const Scene = () => {
+  const { invalidate } = useThree();
+
   return (
     <>
       <ambientLight intensity={0.5} color="#fff4e6" />
-      <directionalLight position={[5, 5, 3]} intensity={2.5} color="#ffd9b3" />
+      <directionalLight
+        position={[5, 5, 3]}
+        intensity={2.5}
+        color="#ffd9b3"
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
+      />
       <directionalLight
         position={[5, 9, 1]}
         castShadow
         intensity={2.5}
         color="#ffd9b3"
+        shadow-mapSize-width={512}
+        shadow-mapSize-height={512}
       />
       <OrbitControls
         enableZoom={false}
+        enableDamping={false}
         minPolarAngle={Math.PI / 5}
         maxPolarAngle={Math.PI / 2}
+        onChange={invalidate}
       />
       <group scale={[1, 1, 1]}>
         <mesh
@@ -38,9 +50,11 @@ const Scene = () => {
 const ContactExperience = () => {
   return (
     <Canvas 
-      shadows 
+      shadows
+      frameloop="demand"
+      dpr={[1, 1.5]}
       camera={{ position: [0, 3, 7], fov: 45 }}
-      gl={{ antialias: true }}
+      gl={{ antialias: true, powerPreference: "high-performance" }}
     >
       <Scene />
     </Canvas>

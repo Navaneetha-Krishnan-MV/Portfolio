@@ -3,7 +3,7 @@ import { ReactTyped as Typed } from "react-typed";
 import grainImage from "../assets/images/grain.jpg";
 import {ReactComponent as StarIcon} from "../assets/icons/star.svg";
 import {ReactComponent as SparkleIcon} from "../assets/icons/sparkle.svg";
-import HeroOrbit from "../Components/HeroOrbit";
+import HeroOrbit from "../components/HeroOrbit";
 
 
 function Landing() {

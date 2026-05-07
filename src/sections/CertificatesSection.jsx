@@ -226,6 +226,8 @@ const CertificatesSection = () => {
                       <img
                         src={cert.image}
                         alt={cert.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-32 object-cover transition-transform duration-300 group-hover/card:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
@@ -281,6 +283,8 @@ const CertificatesSection = () => {
                       <img
                         src={achievement.image}
                         alt={achievement.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-32 object-cover transition-transform duration-300 group-hover/card:scale-110"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-300" />
@@ -329,6 +333,7 @@ const CertificatesSection = () => {
                   <img
                     src={selectedCertificate.image}
                     alt={selectedCertificate.title}
+                    decoding="async"
                     className="w-full h-48 object-cover rounded-t-2xl"
                   />
                 </div>
@@ -384,6 +389,7 @@ const CertificatesSection = () => {
                   <img
                     src={selectedAchievement.image}
                     alt={selectedAchievement.title}
+                    decoding="async"
                     className="w-full h-48 object-cover rounded-t-2xl"
                   />
                 </div>
