@@ -38,6 +38,21 @@ const CertificatesSection = () => {
       ]
     },
     {
+      id: '',
+      title: 'GitHub Foundations',
+      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/Github-Logo.png?updatedAt=1752146288262',
+      description: 'Mastered essential Git and GitHub skills for version control and collaboration. Gained hands-on experience with repository management, branching, pull requests, conflict resolution, and GitHub CLI. Demonstrated ability to contribute effectively to open-source projects and collaborate using modern DevOps workflows.',
+      url: 'https://www.credly.com/badges/3c79786f-8602-4c95-a157-a6d6856cc0f6/',
+      issuer: 'GitHub',
+      skills: [
+        'Version Control with Git',
+        'Collaborative Development',
+        'Repository Management',
+        'Pull Requests & Code Reviews',
+        'GitHub Issues & Projects',
+      ]
+    },
+    {
       id: '3',
       title: 'Microsoft certified Power BI certificate',
       image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/PowerBi-Logo.png?updatedAt=1752146271321',

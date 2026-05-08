@@ -8,20 +8,20 @@ import resumeAnalyzer from "../assets/images/resume-analyzer.png"
 
 const PROJECTS = [
     {
-        title: "Venue-Based Live Quiz Platform",
-        image: multivenueQR,
-        description:
-            "Built and deployed a real-time quiz platform used by 100+ concurrent participants across 8+ venues with smooth simultaneous engagement. Implemented QR-based venue segregation, question expiration logic, dynamic scoring, and live leaderboard updates.",
-        technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "QR Code"],
-        link: "https://queue-r-jade.vercel.app/",
-    },
-    {
         title: "FocusAI Productive Assistant",
         image: focusai,
         description:
             "Built a scalable productivity tracking system with a Chrome extension & Electron app, capturing real-time behavioral data. Implemented Node.js and Python backend with MongoDB for analytics, and designed an ML-based chatbot to deliver personalized feedback.",
         technologies: ["React", "CSS", "Node.js", "Python", "MongoDB", "ML"],
-        link: "https://parking-orcin-tau.vercel.app/",
+        videoLink: "https://youtu.be/dIt1ONCongc?si=AKZTSlQ-QPxf8Ke6",
+    },
+    {
+        title: "Venue-Based Live Quiz Platform",
+        image: multivenueQR,
+        description:
+            "Built and deployed a real-time quiz platform used by 100+ concurrent participants across 8+ venues with smooth simultaneous engagement. Implemented QR-based venue segregation, question expiration logic, dynamic scoring, and live leaderboard updates.",
+        technologies: ["React", "Node.js", "Socket.io", "PostgreSQL", "QR Code"],
+        deploymentLink: "https://queue-r-jade.vercel.app/",
     },
     {
         title: "Smart Parking System",
@@ -29,7 +29,7 @@ const PROJECTS = [
         description:
             "A comprehensive web application designed to streamline parking management, featuring real-time availability updates and booking functionality.",
         technologies: ["React", "CSS", "Postgresql", "Node.js", "Razorpay"],
-        link: "https://parking-orcin-tau.vercel.app/",
+        deploymentLink: "https://parkpuram.vercel.app/",
     },
     {
         title: "AI Resume Analyzer",
@@ -37,7 +37,7 @@ const PROJECTS = [
         description:
             "Fully serverless ATS resume analyzer on AWS. Upload a resume + job description to get an ATS score, semantic match %, skill gap analysis, and AI-powered suggestions in under 60 seconds. Uses Amazon Bedrock (Titan for semantic similarity, Nova for suggestions) and PyMuPDF4LLM for clean PDF extraction.",
         technologies: ["React", "Python", "AWS Lambda", "Amazon Bedrock", "Amazon S3", "API Gateway"],
-        link: "https://resume-analyzer-alpha-tawny.vercel.app/",
+        deploymentLink: "https://resume-analyzer-alpha-tawny.vercel.app/",
     },
     {
         title: "Temperature Based Fan Control System (SCIENCE PROJECT)",
@@ -53,7 +53,7 @@ const PROJECTS = [
         description:
             "The Vehicle Rental System is a Java-based application utilizing OOP principles to manage vehicle rentals. It features separate login functionalities for Renters to browse and book vehicles and Owners to list and manage their fleet.",
         technologies: ["Java", "OOPS", "Singleton Class", "Intelligi"],
-        link: "https://github.com/Navaneetha-Krishnan-MV/Vehicle-Rental-System",
+        githubLink: "https://github.com/Navaneetha-Krishnan-MV/Vehicle-Rental-System",
     },
 ];
 
@@ -108,14 +108,24 @@ const Project = () => {
                                                 Watch Video
                                             </a>
                                         )}
-                                        {project.link && (
+                                        {project.githubLink && (
                                             <a
-                                                href={project.link}
+                                                href={project.githubLink}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="text-purple-400 hover:underline"
                                             >
                                                 View on GitHub
+                                            </a>
+                                        )}
+                                        {project.deploymentLink && (
+                                            <a
+                                                href={project.deploymentLink}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="text-purple-400 hover:underline"
+                                            >
+                                                View Live
                                             </a>
                                         )}
                                     </div>

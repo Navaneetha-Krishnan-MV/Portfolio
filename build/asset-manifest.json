@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.1a074852.css",
+    "main.js": "/static/js/main.afa2a5ff.js",
+    "static/js/701.4c910bdf.chunk.js": "/static/js/701.4c910bdf.chunk.js",
+    "static/js/492.475c8484.chunk.js": "/static/js/492.475c8484.chunk.js",
+    "static/media/scivid.mp4": "/static/media/scivid.dee48bbad494ceb3fd50.mp4",
+    "static/media/resume-analyzer.png": "/static/media/resume-analyzer.c92eb8088a1049a20d7b.png",
+    "static/media/full-stack-development.gif": "/static/media/full-stack-development.7835ddbfd9d23e02b60c.gif",
+    "static/media/focus-ai.png": "/static/media/focus-ai.d503bfd49c87fad4a7b4.png",
+    "static/media/parking.png": "/static/media/parking.2f2508e76b392de5b378.png",
+    "static/media/science-project.jpg": "/static/media/science-project.2a32b7cf0a5d90cff6ad.jpg",
+    "static/media/grain.jpg": "/static/media/grain.fbdb9bb0e4778aaaec8c.jpg",
+    "static/media/multivenue-qr.png": "/static/media/multivenue-qr.b9942bd1012b0e5d9316.png",
+    "static/media/jimag.png": "/static/media/jimag.fc241426afd8f52a312e.png",
+    "index.html": "/index.html",
+    "static/media/star.svg": "/static/media/star.bbd7068825eac8b1987e0f2373ea191c.svg",
+    "static/media/sparkle.svg": "/static/media/sparkle.8336e3eff3c06a0387e1678cc97dd029.svg"
+  },
+  "entrypoints": [
+    "static/css/main.1a074852.css",
+    "static/js/main.afa2a5ff.js"
+  ]
+}
