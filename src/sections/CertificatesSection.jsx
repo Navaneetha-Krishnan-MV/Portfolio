@@ -11,7 +11,7 @@ const CertificatesSection = () => {
     {
       id: '1',
       title: 'Redhat Certified System Administrator',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/Redhat-Logo.png?updatedAt=1752146302207',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244309/Redhat-Logo_jenzlg.png',
       description: 'Validated proficiency in Linux system administration, including installation, configuration, and management of Red Hat Enterprise Linux (RHEL) systems. Demonstrated hands-on skills in user and group management, storage configuration, system security, firewall setup, and basic shell scripting. Gained practical experience in managing Linux firewalls and troubleshooting services using the command line.',
       url: 'https://www.credly.com/badges/3818cf80-4812-445c-9571-24befe3ca6b7/public_url',
       issuer: 'Redhat',
@@ -25,7 +25,7 @@ const CertificatesSection = () => {
     {
       id: '2',
       title: 'GitHub Foundations',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/Github-Logo.png?updatedAt=1752146288262',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244265/Github-Logo_o616r2.png',
       description: 'Mastered essential Git and GitHub skills for version control and collaboration. Gained hands-on experience with repository management, branching, pull requests, conflict resolution, and GitHub CLI. Demonstrated ability to contribute effectively to open-source projects and collaborate using modern DevOps workflows.',
       url: 'https://www.credly.com/badges/3c79786f-8602-4c95-a157-a6d6856cc0f6/',
       issuer: 'GitHub',
@@ -38,24 +38,26 @@ const CertificatesSection = () => {
       ]
     },
     {
-      id: '',
-      title: 'GitHub Foundations',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/Github-Logo.png?updatedAt=1752146288262',
-      description: 'Mastered essential Git and GitHub skills for version control and collaboration. Gained hands-on experience with repository management, branching, pull requests, conflict resolution, and GitHub CLI. Demonstrated ability to contribute effectively to open-source projects and collaborate using modern DevOps workflows.',
-      url: 'https://www.credly.com/badges/3c79786f-8602-4c95-a157-a6d6856cc0f6/',
-      issuer: 'GitHub',
+      id: '7',
+      title: 'MongoDB Developer Associate',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778243650/mongodb-associate-developer.11_kw6ubc.png',
+      description: 'Mastered essential MongoDB skills for database management and development. Gained hands-on experience with MongoDB Atlas, data modeling, CRUD operations, and query optimization. Demonstrated ability to design and implement scalable NoSQL database solutions.',
+      url: 'https://www.credly.com/badges/a9f0e8e6-3d88-4a10-ae6e-efc76299d235/public_url',
+      issuer: 'MongoDB',
       skills: [
-        'Version Control with Git',
-        'Collaborative Development',
-        'Repository Management',
-        'Pull Requests & Code Reviews',
-        'GitHub Issues & Projects',
+        'MongoDB',
+        'Document-based data modeling',
+        'Indexing strategies',
+        'Aggregation pipelines',
+        'Schema design',
+        'Query optimization',
+        'Replication & high availability',
       ]
     },
     {
       id: '3',
       title: 'Microsoft certified Power BI certificate',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/PowerBi-Logo.png?updatedAt=1752146271321',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244259/PowerBi-Logo_soowsb.png',
       description: 'Developed expertise in creating interactive dashboards and data visualizations using Power BI. Gained hands-on experience in data modeling and transforming raw data into actionable insights.',
       url: 'https://www.coursera.org/account/accomplishments/verify/1P5ZLKPYC2WN',
       issuer: 'Microsoft',
@@ -70,7 +72,7 @@ const CertificatesSection = () => {
     {
       id: '4',
       title: 'Web Development Bootcamp',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/Web-Bootcamp.png?updatedAt=1752146262123',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244265/Web-Bootcamp_ev193m.png',
       description: 'Completed a hands-on, project-driven course focused on full-stack web development. Gained a solid foundation in building modern, responsive websites and dynamic web applications from scratch. Learned both frontend and backend development through real-world projects, with an emphasis on practical implementation, deployment, and best coding practices.',
       url: 'https://www.udemy.com/certificate/UC-4a170b41-810c-4955-99df-ef32b9e21111/?utm_campaign=email&utm_medium=email&utm_source=sendgrid.com',
       issuer: 'Udemy',
@@ -95,7 +97,7 @@ const CertificatesSection = () => {
     {
       id: '5',
       title: 'Supervised Machine Learning',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/deeplearning-ai.png?updatedAt=1752146310721',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244258/deeplearning-ai_pbmw3x.png',
       description: 'Completed a foundational course on supervised machine learning covering key concepts such as linear and logistic regression. Gained hands-on experience in building and training predictive models using Python with libraries like NumPy and scikit-learn. Focused on solving real-world problems using regression and binary classification techniques.',
       url: 'https://www.coursera.org/account/accomplishments/certificate/NWS3422G9LLJ',
       issuer: 'Coursera',
@@ -114,7 +116,7 @@ const CertificatesSection = () => {
     {
       id: '6',
       title: 'Java DSA Course',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Certifications/scaler-java.png?updatedAt=1752146207193',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244266/scaler-java_hj4u9n.png',
       description: 'Completed a hands-on course designed to build strong problem-solving skills using Java for technical interviews. The course emphasized understanding core algorithmic thinking, improving coding efficiency, and applying structured approaches to solve complex problems.',
       url: 'https://moonshot.scaler.com/s/li/y6Co0YHceQ',
       issuer: 'Scaler',
@@ -137,9 +139,16 @@ const CertificatesSection = () => {
 
   const achievements = [
     {
+    id: '0',
+    title: 'e-Yantra Robotics Competition – KrishiDrone',
+    image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778246372/eyantra_bnoxya.jpg',
+    description: 'Secured AIR 3 at IIT Bombay in the e-Yantra Robotics Competition under the KrishiDrone theme, finishing among the top 3 out of 562 teams.',
+    details: 'Worked on autonomous drone systems focused on precision agriculture using robotics, computer vision, and control systems. Cleared the software stage by implementing quadcopter dynamics, PID control, ROS, and image processing concepts. Advanced to the hardware stage involving real-time drone stabilization, sensor-controller integration, and vision-based autonomous operations. Selected as one of the top 6 finalist teams nationwide and secured 3rd place at IIT Bombay after 6 months of rigorous competition and hands-on engineering challenges.'
+    },
+    {
       id: '1',
       title: 'Yutham Hackathon',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/Yutham.png?updatedAt=1752172094691',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244568/Yutham_cmui4s.png',
       description: 'Third place in Yutham - Intra-college hackathon',
       details: 'We came up with the idea of a Smart Parking System, implemented using React.js and integrated with IoT to create a complete, real-world solution. This project addressed a practical problem and secured us 3rd prize, while also providing valuable insights through various reviews and feedback.',
       url: 'https://github.com/Navaneetha-Krishnan-MV/parking'
@@ -147,7 +156,7 @@ const CertificatesSection = () => {
     {
       id: '2',
       title: 'Top-30 at Science Day',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/Science-Project.png?updatedAt=1752171619430',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244639/Science-Project_hv0ebi.png',
       description: 'Intra-college science fair',
       details: 'Our team at KPRIET showcased innovation on Science Day with a Temperature Based Fan Speed Control model using Arduino, DC fan, and a Temperature sensor. Honored to secure a spot in the top 30, earning meritorious recognition and certificates.',
       url: ''
@@ -155,35 +164,35 @@ const CertificatesSection = () => {
     {
       id: '3',
       title: 'Technical Quiz Winner',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/KIT.png?updatedAt=1752172191900',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244580/KIT_bxxfyk.png',
       description: 'Secured third place in Technical Quiz at KIT College',
       details: 'Participated in a Technical Quiz at KIT College and secured third place. Demonstrated strong problem-solving skills and knowledge of programming languages and frameworks.Won cash prize of Rs.1500'
     },
     {
       id: '4',
       title: 'Community Service Volunteer',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/Social1.png?updatedAt=1752172770671',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244584/Social1_arfbxw.png',
       description: 'Assisted in hosting elderly and differently-abled guests.',
       details: 'Over 100 elderly and differently-abled members from the Universal Peace Foundation, Coimbatore, visited the Department of Computer Science and Engineering at KPRIET. It was a heartwarming occasion that highlighted the spirit of social responsibility among our faculty and students, who came together with compassion and dedication to support the visitors in every possible way. Beyond technical achievements, this experience reminded us that true fulfillment comes from serving others and creating a positive impact in their lives.'
     },
     {
       id: '5',
       title: 'THIRAN 2025 Tech Fest Winner',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/Eswar.jpg?updatedAt=1752173888016',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244620/Eswar_rqfpob.jpg',
       description: 'Sri Eshwar’s mega inter-college techno-cultural-sports fest.',
       details: 'Secured 1st place in J-League and 3rd place in Code Survival at Sri Eshwar’s inter-college tech fest. Demonstrated strong Java coding, debugging, blind coding, and team problem-solving skills across intense multi-round competitions.'
     },
     {
       id: '6',
       title: 'Volunteer Impact',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/CS%20juniors.png?updatedAt=1752174438918',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244645/CS_juniors_o7b7li.png',
       description: 'Empowering juniors through mentorship and community service.',
       details: 'Mentored school students in cybersecurity and problem-solving during a department event, and volunteered at a government school to organize tech activities and gift distribution.'
     },
     {
       id: '7',
       title: 'IEEE CS Madras Mega ICT Quiz',
-      image: 'https://ik.imagekit.io/5dpa1a7ub/Achievements/Quiz.png?updatedAt=1752174726285',
+      image: 'https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778244649/Quiz_g6lilg.png',
       description: 'Secured 3rd position out of 2000+ participants in a zonal-level quiz.',
       details: 'Qualified among the top 72 from 2000+ participants for the zonal round held at KPRIET. Competed across six challenging rounds covering CS topics and secured 3rd place, winning a cash prize, books, and a special IEEE-signed memento.'
     }
@@ -241,7 +250,6 @@ const CertificatesSection = () => {
                       <img
                         src={cert.image}
                         alt={cert.title}
-                        loading="lazy"
                         decoding="async"
                         className="w-full h-32 object-cover transition-transform duration-300 group-hover/card:scale-110"
                       />
@@ -298,7 +306,6 @@ const CertificatesSection = () => {
                       <img
                         src={achievement.image}
                         alt={achievement.title}
-                        loading="lazy"
                         decoding="async"
                         className="w-full h-32 object-cover transition-transform duration-300 group-hover/card:scale-110"
                       />

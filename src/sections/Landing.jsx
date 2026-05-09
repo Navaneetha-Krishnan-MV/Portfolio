@@ -87,8 +87,9 @@ function Landing() {
       <main className="relative z-10 container mx-auto px-4 pt-64 pb-8">
         <section id="intro" className="mb-16 text-center">
           <img 
-            src="https://ik.imagekit.io/5dpa1a7ub/myimage.jpg?updatedAt=1752400426780" 
+            src="https://res.cloudinary.com/dlcpmcgyo/image/upload/v1778243983/myimage_totint.jpg" 
             alt="Navaneethakrishnan M V"
+            decoding="async"
             width={256}
             height={256}
             className="w-64 h-64 rounded-full mx-auto mb-8 border-2 border-cyan-400/80 shadow-lg transform hover:scale-105 transition-transform duration-300"

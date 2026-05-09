@@ -1,7 +1,6 @@
 import science from "../assets/images/science-project.jpg";
 import jimg from "../assets/images/jimag.png";
 import parking from "../assets/images/parking.png";
-import tempfan from "../assets/media/scivid.mp4";
 import focusai from "../assets/images/focus-ai.png"
 import multivenueQR from "../assets/images/multivenue-qr.png"
 import resumeAnalyzer from "../assets/images/resume-analyzer.png"
@@ -45,7 +44,7 @@ const PROJECTS = [
         description:
             "An Arduino-based science project that automatically adjusts fan speed based on ambient temperature, demonstrating practical application of embedded systems.",
         technologies: ["Arduino", "Arduino IDE", "Temperature Sensors", "Cooling Fan"],
-        videoLink: tempfan,
+        videoLink: "https://youtu.be/_j_5M8vhkpI",
     },
     {
         title: "Vehicle Rental System",
